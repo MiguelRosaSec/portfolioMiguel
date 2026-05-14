@@ -234,7 +234,7 @@ export default function Hero() {
                 className="btn-secondary px-5 py-2.5 rounded-md font-mono-tech text-sm font-semibold cursor-pointer whitespace-nowrap flex items-center gap-2"
               >
                 <i className="ri-github-line"></i>
-                Ver GitHub
+                GitHub
               </a>
               <a
                 href="https://linkedin.com/in/miguelangelrosacaparros"
@@ -243,7 +243,7 @@ export default function Hero() {
                 className="btn-secondary px-5 py-2.5 rounded-md font-mono-tech text-sm font-semibold cursor-pointer whitespace-nowrap flex items-center gap-2"
               >
                 <i className="ri-linkedin-line"></i>
-                Ver LinkedIn
+                LinkedIn
               </a>
             </div>
 
