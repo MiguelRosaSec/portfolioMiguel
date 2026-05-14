@@ -15,30 +15,31 @@ export default function Contact() {
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFormStatus('sending');
-    const form = e.currentTarget;
-    const data = new URLSearchParams();
-    const formData = new FormData(form);
-    formData.forEach((value, key) => {
-      data.append(key, value.toString());
+  e.preventDefault();
+  setFormStatus('sending');
+
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  try {
+    const res = await fetch('https://formspree.io/f/mdabvppw', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json',
+      },
     });
-    try {
-      const res = await fetch('https://readdy.ai/api/form/d82d11tdbt1dlk0q811g', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: data.toString(),
-      });
-      if (res.ok) {
-        setFormStatus('success');
-        form.reset();
-      } else {
-        setFormStatus('error');
-      }
-    } catch {
+
+    if (res.ok) {
+      setFormStatus('success');
+      form.reset();
+    } else {
       setFormStatus('error');
     }
-  };
+  } catch {
+    setFormStatus('error');
+  }
+};
 
   return (
     <section id="contacto" className="relative py-24 overflow-hidden" ref={ref}>
